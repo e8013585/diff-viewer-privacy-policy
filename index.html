@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="description"
-        content="Privacy Policy for the Diff Viewer Chrome Extension. 
+        content="Privacy Policy for the Diff Viewer Chrome Extension.
                  No data collection, no telemetry, fully offline." />
   <title>Privacy Policy — Diff Viewer Chrome Extension</title>
   <style>
@@ -207,7 +207,7 @@
     /* ── Summary cards ── */
     .summary-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
       gap: 1rem;
       margin-bottom: 3rem;
     }
@@ -277,9 +277,7 @@
       gap: 0.5rem;
     }
 
-    h2 .h2-icon {
-      font-size: 1.1rem;
-    }
+    h2 .h2-icon { font-size: 1.1rem; }
 
     h3 {
       font-size: 0.95rem;
@@ -296,6 +294,16 @@
     }
 
     p:last-child { margin-bottom: 0; }
+
+    code {
+      font-family: var(--font-mono);
+      font-size: 0.82em;
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      padding: 1px 5px;
+      color: var(--accent);
+    }
 
     /* ── Callout boxes ── */
     .callout {
@@ -325,10 +333,55 @@
       color: var(--text-muted);
     }
 
+    .callout--red {
+      background: color-mix(in srgb, var(--accent-red) 8%, transparent);
+      border-color: var(--accent-red);
+      color: var(--text-muted);
+    }
+
     .callout strong {
       color: var(--text);
       display: block;
       margin-bottom: 0.25rem;
+    }
+
+    /* ── Storage detail box ── */
+    .storage-detail {
+      background: var(--bg-secondary);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 1.25rem 1.5rem;
+      margin: 1.25rem 0;
+      display: flex;
+      flex-direction: column;
+      gap: 0.85rem;
+    }
+
+    .storage-detail__row {
+      display: grid;
+      grid-template-columns: 160px 1fr;
+      gap: 0.5rem 1rem;
+      font-size: 0.875rem;
+      align-items: baseline;
+    }
+
+    .storage-detail__label {
+      font-weight: 600;
+      color: var(--text-subtle);
+      font-size: 0.78rem;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+    }
+
+    .storage-detail__value {
+      color: var(--text-muted);
+      line-height: 1.5;
+    }
+
+    .storage-detail__divider {
+      border: none;
+      border-top: 1px solid var(--border);
+      margin: 0;
     }
 
     /* ── Permission table ── */
@@ -362,24 +415,29 @@
     }
 
     .perm-table td {
-      padding: 0.65rem 1rem;
+      padding: 0.75rem 1rem;
       border-bottom: 1px solid var(--border);
       color: var(--text-muted);
       vertical-align: top;
-      line-height: 1.5;
+      line-height: 1.6;
     }
 
     .perm-table tr:last-child td { border-bottom: none; }
 
     .perm-table tr:hover td {
-      background: color-mix(in srgb, var(--bg-card) 50%, transparent);
+      background: color-mix(in srgb, var(--bg-card) 60%, transparent);
     }
 
     .perm-name {
       font-family: var(--font-mono);
-      font-size: 0.8rem;
+      font-size: 0.82rem;
       color: var(--accent);
       white-space: nowrap;
+      background: color-mix(in srgb, var(--accent) 10%, transparent);
+      border: 1px solid color-mix(in srgb, var(--accent) 20%, transparent);
+      border-radius: 4px;
+      padding: 2px 6px;
+      display: inline-block;
     }
 
     .badge {
@@ -396,17 +454,25 @@
     .badge--yes {
       background: color-mix(in srgb, var(--accent-green) 15%, transparent);
       color: var(--accent-green);
+      border: 1px solid color-mix(in srgb, var(--accent-green) 30%, transparent);
     }
 
     .badge--no {
       background: color-mix(in srgb, var(--accent-red) 15%, transparent);
       color: var(--accent-red);
+      border: 1px solid color-mix(in srgb, var(--accent-red) 30%, transparent);
     }
 
     .badge--na {
       background: var(--bg-card);
       color: var(--text-subtle);
       border: 1px solid var(--border);
+    }
+
+    .badge--session {
+      background: color-mix(in srgb, var(--accent-yellow) 12%, transparent);
+      color: var(--accent-yellow);
+      border: 1px solid color-mix(in srgb, var(--accent-yellow) 30%, transparent);
     }
 
     /* ── No-data promise list ── */
@@ -435,6 +501,11 @@
       margin-top: 1px;
     }
 
+    .promise-list li.cross::before {
+      content: "✗";
+      color: var(--accent-red);
+    }
+
     /* ── Contact card ── */
     .contact-card {
       background: var(--bg-card);
@@ -443,12 +514,10 @@
       padding: 1.5rem;
       display: flex;
       flex-direction: column;
-      gap: 0.5rem;
+      gap: 0.6rem;
     }
 
-    .contact-card p {
-      margin: 0;
-    }
+    .contact-card p { margin: 0; }
 
     .contact-card a {
       color: var(--accent);
@@ -456,9 +525,7 @@
       font-weight: 500;
     }
 
-    .contact-card a:hover {
-      text-decoration: underline;
-    }
+    .contact-card a:hover { text-decoration: underline; }
 
     /* ── Table of contents ── */
     .toc {
@@ -504,6 +571,47 @@
       flex-shrink: 0;
     }
 
+    /* ── Changelog strip ── */
+    .changelog {
+      background: var(--bg-secondary);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      overflow: hidden;
+      margin: 1.25rem 0;
+    }
+
+    .changelog__header {
+      background: var(--bg-card);
+      padding: 0.6rem 1rem;
+      font-size: 0.78rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.07em;
+      color: var(--text-subtle);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .changelog__entry {
+      display: grid;
+      grid-template-columns: 110px 1fr;
+      gap: 0.5rem 1rem;
+      padding: 0.65rem 1rem;
+      font-size: 0.85rem;
+      border-bottom: 1px solid var(--border);
+      align-items: baseline;
+    }
+
+    .changelog__entry:last-child { border-bottom: none; }
+
+    .changelog__date {
+      font-family: var(--font-mono);
+      font-size: 0.78rem;
+      color: var(--text-subtle);
+      white-space: nowrap;
+    }
+
+    .changelog__note { color: var(--text-muted); }
+
     /* ── Footer ── */
     .site-footer {
       background: var(--bg-secondary);
@@ -523,6 +631,8 @@
       text-decoration: none;
     }
 
+    .site-footer a:hover { text-decoration: underline; }
+
     /* ── Focus ── */
     :focus-visible {
       outline: 2px solid var(--accent);
@@ -534,8 +644,12 @@
     @media (max-width: 600px) {
       .hero__title { font-size: 1.5rem; }
       .summary-grid { grid-template-columns: 1fr 1fr; }
+      .storage-detail__row { grid-template-columns: 1fr; gap: 0.2rem; }
+
       .perm-table th:nth-child(3),
       .perm-table td:nth-child(3) { display: none; }
+
+      .changelog__entry { grid-template-columns: 1fr; }
     }
   </style>
 </head>
@@ -571,30 +685,33 @@
   ══════════════════════════════════════════════ -->
   <main id="main-content">
 
-    <!-- Hero -->
+    <!-- ── Hero ── -->
     <section class="hero" aria-labelledby="page-title">
       <span class="hero__eyebrow">Legal</span>
       <h1 class="hero__title" id="page-title">Privacy Policy</h1>
       <p class="hero__subtitle">
         Diff Viewer is built on a single principle: your data belongs to you.
-        This document explains exactly what information the extension does and
-        does not collect — in plain language.
+        This document explains exactly what information the extension does
+        and does not collect — in plain language, with no legalese.
       </p>
-      <div class="meta-pill" role="status" aria-label="Policy status">
+      <div class="meta-pill" role="status" aria-label="Policy effective date">
         <span class="meta-pill__dot" aria-hidden="true"></span>
-        <span>Effective: <time datetime="2026-05-10">May 10, 2026</time>
-          &nbsp;·&nbsp; Version 1.0.0</span>
+        <span>
+          Effective: <time datetime="2025-01-01">January 1, 2025</time>
+          &nbsp;·&nbsp; Version 1.0.0
+        </span>
       </div>
     </section>
 
-    <!-- At-a-Glance Cards -->
+    <!-- ── At-a-Glance Cards ── -->
     <section aria-label="Privacy at a glance">
       <div class="summary-grid">
         <div class="summary-card">
           <div class="summary-card__icon" aria-hidden="true">🔒</div>
           <div class="summary-card__title">Zero Data Collection</div>
           <div class="summary-card__body">
-            We collect no personal data, usage data, or telemetry of any kind.
+            No personal data, usage stats, or telemetry of any kind is
+            collected or transmitted.
           </div>
         </div>
         <div class="summary-card">
@@ -602,14 +719,22 @@
           <div class="summary-card__title">No Network Requests</div>
           <div class="summary-card__body">
             The extension makes zero external network calls.
-            Everything runs locally.
+            All computation is local.
+          </div>
+        </div>
+        <div class="summary-card">
+          <div class="summary-card__icon" aria-hidden="true">⏱️</div>
+          <div class="summary-card__title">Session-Only Storage</div>
+          <div class="summary-card__body">
+            Text is saved locally in your browser session only and deleted
+            automatically when the browser closes.
           </div>
         </div>
         <div class="summary-card">
           <div class="summary-card__icon" aria-hidden="true">👤</div>
           <div class="summary-card__title">No Account Required</div>
           <div class="summary-card__body">
-            No sign-in, no registration, no email address needed.
+            No sign-in, no registration, no email address — ever.
           </div>
         </div>
         <div class="summary-card">
@@ -617,14 +742,15 @@
           <div class="summary-card__title">Fully Offline</div>
           <div class="summary-card__body">
             Works without an internet connection after installation.
+            All assets are bundled locally.
           </div>
         </div>
       </div>
     </section>
 
-    <!-- Table of Contents -->
-    <nav class="toc" aria-labelledby="toc-title">
-      <p class="toc__title" id="toc-title">Contents</p>
+    <!-- ── Table of Contents ── -->
+    <nav class="toc" aria-labelledby="toc-heading">
+      <p class="toc__title" id="toc-heading">Contents</p>
       <ol class="toc__list">
         <li>
           <span class="toc__num" aria-hidden="true">01</span>
@@ -644,7 +770,7 @@
         </li>
         <li>
           <span class="toc__num" aria-hidden="true">05</span>
-          <a href="#local-storage">Local Storage</a>
+          <a href="#local-storage">Local &amp; Session Storage</a>
         </li>
         <li>
           <span class="toc__num" aria-hidden="true">06</span>
@@ -665,7 +791,9 @@
       </ol>
     </nav>
 
-    <!-- ── §1 Scope ── -->
+    <!-- ══════════════════════════════════════════════
+         §1  SCOPE
+    ══════════════════════════════════════════════ -->
     <section class="policy-section" aria-labelledby="scope-title">
       <span class="section-anchor" id="scope"></span>
       <span class="section-number">01</span>
@@ -679,13 +807,15 @@
         distributed through the Chrome Web Store.
       </p>
       <p>
-        This policy does not apply to any external websites, services, or
-        tools that you may access while using Chrome. Those are governed by
-        their own privacy policies.
+        This policy does not apply to any external websites, services, or tools
+        that you may access while using Chrome. Those are governed by their
+        own respective privacy policies.
       </p>
     </section>
 
-    <!-- ── §2 Data Collected ── -->
+    <!-- ══════════════════════════════════════════════
+         §2  DATA COLLECTED
+    ══════════════════════════════════════════════ -->
     <section class="policy-section" aria-labelledby="data-title">
       <span class="section-anchor" id="data-collected"></span>
       <span class="section-number">02</span>
@@ -695,27 +825,32 @@
       </h2>
 
       <div class="callout callout--green">
-        <strong>The short answer: nothing.</strong>
-        The Extension does not collect, transmit, store on any server, sell,
-        share, or process any personal or non-personal data whatsoever.
+        <strong>The short answer: nothing leaves your device.</strong>
+        The Extension does not collect, transmit, sell, share, or process
+        any personal or non-personal data on any server. Text you type or
+        paste is handled exclusively on your local machine.
       </div>
 
-      <p>Specifically, the Extension does <strong>not</strong> collect:</p>
+      <p>
+        Specifically, the Extension does <strong>not</strong> collect:
+      </p>
 
       <ul class="promise-list">
-        <li>Personal identifiers (name, email, IP address, device ID)</li>
-        <li>The text you paste into the input panels</li>
-        <li>Diff results or comparison history</li>
-        <li>Browsing history, tab URLs, or page content</li>
-        <li>Usage statistics, feature interactions, or analytics</li>
-        <li>Crash reports or error logs sent to any server</li>
-        <li>Keyboard input or clipboard contents beyond the
-            explicit copy/paste actions you initiate</li>
-        <li>Any information about your system, browser, or location</li>
+        <li>Personal identifiers (name, email address, IP address, device ID)</li>
+        <li>The text you paste or type into the input panels</li>
+        <li>Diff results, comparison history, or output</li>
+        <li>Browsing history, tab URLs, or any web page content</li>
+        <li>Usage statistics, feature interaction events, or analytics</li>
+        <li>Crash reports or error logs sent to any remote service</li>
+        <li>Keyboard input beyond what you explicitly type in the panels</li>
+        <li>Clipboard contents other than explicit copy actions you trigger</li>
+        <li>Any information about your operating system, location, or hardware</li>
       </ul>
     </section>
 
-    <!-- ── §3 How It Works ── -->
+    <!-- ══════════════════════════════════════════════
+         §3  HOW IT WORKS
+    ══════════════════════════════════════════════ -->
     <section class="policy-section" aria-labelledby="how-title">
       <span class="section-anchor" id="how-it-works"></span>
       <span class="section-number">03</span>
@@ -723,47 +858,52 @@
         <span class="h2-icon" aria-hidden="true">⚙️</span>
         How the Extension Works
       </h2>
-      <p>
-        Diff Viewer is a <strong>browser popup extension</strong>. When you
-        click its icon, a popup window opens entirely within your browser
-        process. All computation — text parsing, diff algorithm execution,
-        and result rendering — occurs <em>inside that popup window</em>
-        using only browser-native JavaScript APIs.
-      </p>
 
-      <h3>Data flow</h3>
       <p>
-        Text you paste into the panels is held in memory (JavaScript variables
-        and the browser's <code>sessionStorage</code>) for the duration of
-        your session. It is never serialized to disk beyond
-        <code>sessionStorage</code>, never sent over the network, and is
-        automatically discarded when the popup is closed or the browser
-        session ends.
+        Diff Viewer is a <strong>browser popup extension</strong>. Clicking its
+        toolbar icon opens a self-contained popup window that runs entirely
+        within your browser's sandboxed extension process. All text parsing,
+        diff algorithm execution, and result rendering happen
+        <em>locally inside that popup</em> using standard browser JavaScript
+        APIs — no server involvement at any stage.
       </p>
 
       <h3>No content scripts</h3>
       <p>
-        The Extension does not inject any scripts into web pages you visit.
-        It cannot read, modify, or interact with any webpage's DOM, content,
-        or network traffic. It is invisible to every website you browse.
+        The Extension does <strong>not</strong> inject scripts into any
+        webpage you visit. It cannot read, observe, modify, or interact with
+        any page's content, DOM, form data, or network traffic. It is
+        completely invisible to every website you browse.
       </p>
 
-      <h3>No background service worker with network access</h3>
+      <h3>No background service worker</h3>
       <p>
-        The Extension does not register a background service worker. There
-        is no persistent background process monitoring your browser activity.
+        There is no persistent background process. The Extension is dormant
+        until you open its popup, and it stops all activity the moment you
+        close the popup window.
+      </p>
+
+      <h3>No external resources at runtime</h3>
+      <p>
+        Every asset — HTML, CSS, JavaScript, and icons — is bundled within
+        the extension package itself and served from the
+        <code>chrome-extension://</code> origin. No fonts, scripts, images,
+        or data are fetched from the internet at runtime.
       </p>
 
       <div class="callout callout--blue">
-        <strong>Verifiable.</strong>
-        The Extension's Content Security Policy (<code>script-src 'self'</code>)
-        is enforced at the browser level and technically prevents the loading
-        of any external scripts, stylesheets, fonts, or data — even if the
-        source code attempted to do so.
+        <strong>Technically enforced, not just promised.</strong>
+        The Extension's Content Security Policy header
+        (<code>script-src 'self'; object-src 'self'</code>) is enforced by
+        Chrome at the browser level. It is architecturally impossible for the
+        Extension to load external scripts or make unauthorised network
+        requests — even if the source code attempted to do so.
       </div>
     </section>
 
-    <!-- ── §4 Permissions ── -->
+    <!-- ══════════════════════════════════════════════
+         §4  PERMISSIONS
+    ══════════════════════════════════════════════ -->
     <section class="policy-section" aria-labelledby="perms-title">
       <span class="section-anchor" id="permissions"></span>
       <span class="section-number">04</span>
@@ -771,60 +911,118 @@
         <span class="h2-icon" aria-hidden="true">🔑</span>
         Permissions Explained
       </h2>
+
       <p>
-        The Extension declares the following permissions in its
-        <code>manifest.json</code>. Below is an exact explanation of why
-        each permission exists and what it does — and does not — allow.
+        The Extension declares exactly <strong>two permissions</strong> in its
+        <code>manifest.json</code>: <code>clipboardWrite</code> and
+        <code>storage</code>. Below is a precise, line-by-line account of why
+        each permission exists, what browser API it enables, and what it
+        explicitly cannot do.
       </p>
 
-      <div class="perm-table-wrapper" role="region"
-           aria-label="Permissions table">
+      <!-- ── Requested permissions ── -->
+      <h3>Permissions that are requested</h3>
+
+      <div class="perm-table-wrapper"
+           role="region"
+           aria-label="Requested permissions table">
         <table class="perm-table">
           <thead>
             <tr>
               <th scope="col">Permission</th>
-              <th scope="col">Why It's Used</th>
-              <th scope="col">Can Access Your Data?</th>
-              <th scope="col">User-Initiated Only?</th>
+              <th scope="col">Exact purpose in this extension</th>
+              <th scope="col">Sends data externally?</th>
+              <th scope="col">User-initiated only?</th>
             </tr>
           </thead>
           <tbody>
+
+            <!-- clipboardWrite -->
             <tr>
               <td>
                 <span class="perm-name">clipboardWrite</span>
               </td>
               <td>
-                Powers the <strong>Copy</strong> buttons in each input panel.
-                When you click Copy, the panel's text is written to your
-                system clipboard via the
-                <code>navigator.clipboard.writeText()</code> API. The
-                Extension never writes to the clipboard automatically or
-                without a direct button click from you.
+                Powers the <strong>Copy</strong> button present in each input
+                panel. When you click a Copy button, the content of that
+                panel is written to your system clipboard using the
+                <code>navigator.clipboard.writeText()</code> API, with a
+                <code>document.execCommand('copy')</code> fallback for
+                contexts where the Async Clipboard API is unavailable.
+                <br /><br />
+                The Extension <em>never</em> writes to the clipboard
+                automatically, on a timer, in the background, or without
+                a direct, explicit button click from you. Nothing is
+                appended, modified, or monitored in your clipboard at
+                any other time.
               </td>
-              <td><span class="badge badge--no">No</span></td>
-              <td><span class="badge badge--yes">Yes</span></td>
+              <td><span class="badge badge--no">Never</span></td>
+              <td><span class="badge badge--yes">Always</span></td>
             </tr>
+
+            <!-- storage -->
             <tr>
               <td>
-                <span class="perm-name">clipboardRead</span>
+                <span class="perm-name">storage</span>
               </td>
               <td>
-                Declared for a planned "Paste from clipboard" convenience
-                feature. This permission is only exercised via an explicit
-                user gesture. The Extension never reads the clipboard
-                automatically, in the background, or without you clicking
-                a clearly labelled Paste button.
+                Enables use of <code>chrome.storage.session</code> — a
+                session-scoped storage area introduced in Chrome 102 that
+                is <strong>local to your device</strong>, held only in
+                memory for the duration of your browser session, and
+                <strong>never synced</strong> to Chrome Sync, Google's
+                servers, or any third party.
+                <br /><br />
+                The Extension stores only two string values under the
+                keys <code>dv_text_left</code> and
+                <code>dv_text_right</code> — the text from your Original
+                and Modified panels — so that your work is preserved if
+                you close and reopen the popup during the same browser
+                session. This data is erased automatically when the
+                browser is closed.
+                <br /><br />
+                The <strong>Reset</strong> button calls
+                <code>chrome.storage.session.remove()</code> to
+                immediately delete both keys on demand. The
+                <strong>Clear</strong> button overwrites both keys with
+                empty strings, also removing your text immediately.
+                Neither action sends any data anywhere.
               </td>
-              <td><span class="badge badge--no">No</span></td>
-              <td><span class="badge badge--yes">Yes</span></td>
+              <td><span class="badge badge--no">Never</span></td>
+              <td>
+                <span class="badge badge--session">Auto on input</span>
+              </td>
             </tr>
+
           </tbody>
         </table>
       </div>
 
-      <h3>Permissions the Extension does <em>not</em> request</h3>
+      <!-- Storage area clarification -->
+      <div class="callout callout--yellow">
+        <strong>Why <code>storage</code> and not <code>sessionStorage</code>?</strong>
+        The browser built-in <code>sessionStorage</code> is cleared every time
+        a Chrome extension popup closes, making it unsuitable for preserving
+        text across popup reopens within the same browser session.
+        <code>chrome.storage.session</code> solves this problem: it persists
+        for the lifetime of the <em>browser session</em> (not just the popup),
+        is cleared when the browser closes, and — critically — is
+        <strong>never synced</strong> to any external server, unlike
+        <code>chrome.storage.sync</code> which the Extension does
+        <em>not</em> use.
+      </div>
 
-      <div class="perm-table-wrapper" role="region"
+      <!-- ── Permissions NOT requested ── -->
+      <h3>Permissions the Extension does <em>not</em> request</h3>
+      <p>
+        The following table lists sensitive Chrome permissions that are
+        <strong>not declared</strong> in the Extension's manifest. Their
+        absence is verifiable by inspecting
+        <code>manifest.json</code> directly.
+      </p>
+
+      <div class="perm-table-wrapper"
+           role="region"
            aria-label="Permissions not requested">
         <table class="perm-table">
           <thead>
@@ -836,91 +1034,175 @@
           </thead>
           <tbody>
             <tr>
+              <td><span class="perm-name">clipboardRead</span></td>
+              <td>Reading the contents of your clipboard without you pasting</td>
+              <td><span class="badge badge--no">Not requested</span></td>
+            </tr>
+            <tr>
               <td><span class="perm-name">tabs</span></td>
-              <td>Reading tab URLs and titles</td>
-              <td><span class="badge badge--no">Not Requested</span></td>
+              <td>Reading tab URLs, titles, and switching tabs programmatically</td>
+              <td><span class="badge badge--no">Not requested</span></td>
             </tr>
             <tr>
               <td><span class="perm-name">activeTab</span></td>
-              <td>Accessing the content of the active page</td>
-              <td><span class="badge badge--no">Not Requested</span></td>
+              <td>Accessing the content or URL of the currently active tab</td>
+              <td><span class="badge badge--no">Not requested</span></td>
             </tr>
             <tr>
               <td><span class="perm-name">history</span></td>
-              <td>Reading your browsing history</td>
-              <td><span class="badge badge--no">Not Requested</span></td>
+              <td>Reading or modifying your browser history</td>
+              <td><span class="badge badge--no">Not requested</span></td>
             </tr>
             <tr>
               <td><span class="perm-name">cookies</span></td>
-              <td>Reading or writing cookies</td>
-              <td><span class="badge badge--no">Not Requested</span></td>
-            </tr>
-            <tr>
-              <td><span class="perm-name">storage</span></td>
-              <td>Chrome's synced extension storage</td>
-              <td><span class="badge badge--no">Not Requested</span></td>
-            </tr>
-            <tr>
-              <td><span class="perm-name">webRequest</span></td>
-              <td>Intercepting network traffic</td>
-              <td><span class="badge badge--no">Not Requested</span></td>
+              <td>Reading or writing cookies for any domain</td>
+              <td><span class="badge badge--no">Not requested</span></td>
             </tr>
             <tr>
               <td><span class="perm-name">identity</span></td>
-              <td>OAuth / Google account access</td>
-              <td><span class="badge badge--no">Not Requested</span></td>
+              <td>OAuth sign-in or Google account access</td>
+              <td><span class="badge badge--no">Not requested</span></td>
+            </tr>
+            <tr>
+              <td><span class="perm-name">webRequest</span></td>
+              <td>Intercepting or modifying network traffic</td>
+              <td><span class="badge badge--no">Not requested</span></td>
             </tr>
             <tr>
               <td><span class="perm-name">notifications</span></td>
-              <td>Sending system notifications</td>
-              <td><span class="badge badge--no">Not Requested</span></td>
+              <td>Sending system-level desktop notifications</td>
+              <td><span class="badge badge--no">Not requested</span></td>
             </tr>
             <tr>
               <td><span class="perm-name">&lt;all_urls&gt;</span></td>
-              <td>Accessing all websites</td>
-              <td><span class="badge badge--no">Not Requested</span></td>
+              <td>Accessing the content of all websites you visit</td>
+              <td><span class="badge badge--no">Not requested</span></td>
+            </tr>
+            <tr>
+              <td><span class="perm-name">geolocation</span></td>
+              <td>Accessing your physical location</td>
+              <td><span class="badge badge--no">Not requested</span></td>
             </tr>
           </tbody>
         </table>
       </div>
     </section>
 
-    <!-- ── §5 Local Storage ── -->
+    <!-- ══════════════════════════════════════════════
+         §5  LOCAL & SESSION STORAGE
+    ══════════════════════════════════════════════ -->
     <section class="policy-section" aria-labelledby="storage-title">
       <span class="section-anchor" id="local-storage"></span>
       <span class="section-number">05</span>
       <h2 id="storage-title">
         <span class="h2-icon" aria-hidden="true">💾</span>
-        Local Storage
+        Local &amp; Session Storage
       </h2>
+
       <p>
-        The Extension uses the browser's built-in
-        <strong><code>sessionStorage</code></strong> API to remember the text
-        you have typed into the two input panels. This data:
+        The Extension uses <strong>one</strong> storage mechanism:
+        <code>chrome.storage.session</code>. This section explains exactly
+        what is stored, where it lives, how long it persists, and how you
+        can delete it at any time.
       </p>
-      <ul class="promise-list">
-        <li>Is stored entirely on your local device inside your browser's
-            sandboxed storage partition for this extension</li>
-        <li>Is automatically deleted when the browser session ends or
-            you close all browser windows</li>
-        <li>Is never synced to Chrome Sync, any cloud service,
-            or any server</li>
-        <li>Cannot be read by any website or any other extension</li>
-        <li>Is limited in scope to the extension popup's own
-            JavaScript context</li>
-      </ul>
+
+      <!-- Storage detail box -->
+      <div class="storage-detail" role="region" aria-label="Storage details">
+
+        <div class="storage-detail__row">
+          <span class="storage-detail__label">Storage API</span>
+          <span class="storage-detail__value">
+            <code>chrome.storage.session</code>
+          </span>
+        </div>
+        <hr class="storage-detail__divider" />
+
+        <div class="storage-detail__row">
+          <span class="storage-detail__label">Keys stored</span>
+          <span class="storage-detail__value">
+            <code>dv_text_left</code> — text from the Original panel<br />
+            <code>dv_text_right</code> — text from the Modified panel
+          </span>
+        </div>
+        <hr class="storage-detail__divider" />
+
+        <div class="storage-detail__row">
+          <span class="storage-detail__label">Data type</span>
+          <span class="storage-detail__value">
+            Plain UTF-8 strings (whatever you type or paste into the panels)
+          </span>
+        </div>
+        <hr class="storage-detail__divider" />
+
+        <div class="storage-detail__row">
+          <span class="storage-detail__label">When saved</span>
+          <span class="storage-detail__value">
+            Automatically, 500 ms after you stop typing (debounced), on
+            every input event in either textarea
+          </span>
+        </div>
+        <hr class="storage-detail__divider" />
+
+        <div class="storage-detail__row">
+          <span class="storage-detail__label">Lifetime</span>
+          <span class="storage-detail__value">
+            Until the browser is closed. All
+            <code>chrome.storage.session</code> data is automatically
+            wiped by Chrome when the last browser window closes.
+          </span>
+        </div>
+        <hr class="storage-detail__divider" />
+
+        <div class="storage-detail__row">
+          <span class="storage-detail__label">Synced to cloud?</span>
+          <span class="storage-detail__value">
+            <strong>No.</strong> <code>chrome.storage.session</code> is
+            strictly local and in-memory. It is never uploaded to Chrome
+            Sync, Google's servers, or any third-party service.
+          </span>
+        </div>
+        <hr class="storage-detail__divider" />
+
+        <div class="storage-detail__row">
+          <span class="storage-detail__label">Readable by websites?</span>
+          <span class="storage-detail__value">
+            <strong>No.</strong> Extension storage is sandboxed. Websites,
+            other extensions, and any code outside this Extension cannot
+            access it.
+          </span>
+        </div>
+        <hr class="storage-detail__divider" />
+
+        <div class="storage-detail__row">
+          <span class="storage-detail__label">How to delete</span>
+          <span class="storage-detail__value">
+            Three ways, any of which work immediately:<br />
+            1. Click the <strong>Reset</strong> button — calls
+            <code>chrome.storage.session.remove()</code> to delete both keys.<br />
+            2. Click the <strong>Clear</strong> button — overwrites both
+            keys with empty strings.<br />
+            3. Close all Chrome windows — Chrome automatically purges all
+            session storage on browser exit.
+          </span>
+        </div>
+
+      </div>
 
       <div class="callout callout--yellow">
-        <strong>Note on sensitive content.</strong>
-        If you paste sensitive information (passwords, private keys,
-        confidential documents) into Diff Viewer, that content is held in
-        <code>sessionStorage</code> temporarily. While this data never leaves
-        your device through this Extension, you are responsible for the
-        security of your local device and browser profile.
+        <strong>A note on sensitive content.</strong>
+        If you paste sensitive material — passwords, API keys, private
+        documents, confidential code — into Diff Viewer, that text is
+        held temporarily in <code>chrome.storage.session</code> on your
+        local device. While this Extension never transmits that data
+        anywhere, you are responsible for the physical security of your
+        device and for using the Reset or Clear buttons when working with
+        sensitive content on a shared computer.
       </div>
     </section>
 
-    <!-- ── §6 Third Parties ── -->
+    <!-- ══════════════════════════════════════════════
+         §6  THIRD PARTIES
+    ══════════════════════════════════════════════ -->
     <section class="policy-section" aria-labelledby="third-title">
       <span class="section-anchor" id="third-parties"></span>
       <span class="section-number">06</span>
@@ -928,26 +1210,33 @@
         <span class="h2-icon" aria-hidden="true">🤝</span>
         Third Parties
       </h2>
+
       <p>
         Diff Viewer does not integrate with, communicate with, or share any
-        data with any third party, including but not limited to:
+        data with any third party, including:
       </p>
+
       <ul class="promise-list">
-        <li>Analytics providers (Google Analytics, Mixpanel, Amplitude, etc.)</li>
-        <li>Crash reporting services (Sentry, Bugsnag, Datadog, etc.)</li>
-        <li>Advertising networks or ad exchanges</li>
+        <li>Analytics providers (Google Analytics, Mixpanel, Amplitude, Plausible, etc.)</li>
+        <li>Crash reporting services (Sentry, Bugsnag, Datadog, Rollbar, etc.)</li>
+        <li>Advertising networks, ad exchanges, or remarketing platforms</li>
         <li>Data brokers or data enrichment services</li>
-        <li>Cloud storage or synchronization services</li>
-        <li>Any API endpoints, webhooks, or remote servers of any kind</li>
+        <li>Cloud storage or file sync services</li>
+        <li>AI or machine-learning APIs of any kind</li>
+        <li>Any API endpoints, webhooks, or remote servers of any description</li>
       </ul>
+
       <p>
-        The Extension loads no external resources at runtime. All HTML, CSS,
-        JavaScript, and image assets are bundled within the extension package
-        itself and loaded from the extension's own origin (<code>chrome-extension://</code>).
+        Every resource the Extension uses — HTML, CSS, JavaScript, and icon
+        images — is bundled inside the extension package at install time and
+        served from the <code>chrome-extension://</code> origin. No external
+        CDN, font service, or image host is contacted at any point.
       </p>
     </section>
 
-    <!-- ── §7 Children ── -->
+    <!-- ══════════════════════════════════════════════
+         §7  CHILDREN
+    ══════════════════════════════════════════════ -->
     <section class="policy-section" aria-labelledby="children-title">
       <span class="section-anchor" id="children"></span>
       <span class="section-number">07</span>
@@ -955,16 +1244,19 @@
         <span class="h2-icon" aria-hidden="true">👶</span>
         Children's Privacy
       </h2>
+
       <p>
-        Diff Viewer does not collect any personal information from anyone,
-        including children under the age of 13 (or the applicable age of
-        digital consent in your jurisdiction). Because we collect no data
-        at all, there is no special treatment required for children — the
-        same zero-data guarantee applies universally.
+        Diff Viewer does not collect personal information from anyone —
+        including children under the age of 13, or the applicable age of
+        digital consent in your jurisdiction. Because no data is collected
+        at all, there is no special-case handling required for younger users:
+        the same zero-data guarantee applies universally regardless of age.
       </p>
     </section>
 
-    <!-- ── §8 Changes ── -->
+    <!-- ══════════════════════════════════════════════
+         §8  CHANGES
+    ══════════════════════════════════════════════ -->
     <section class="policy-section" aria-labelledby="changes-title">
       <span class="section-anchor" id="changes"></span>
       <span class="section-number">08</span>
@@ -972,21 +1264,42 @@
         <span class="h2-icon" aria-hidden="true">📝</span>
         Changes to This Policy
       </h2>
+
       <p>
-        If future versions of the Extension introduce new features that change
+        If a future version of the Extension introduces features that change
         how data is handled — even locally — this Privacy Policy will be
-        updated before that version is published. The "Effective" date at the
-        top of this page will reflect the most recent revision.
+        updated <em>before</em> that version is published to the Chrome Web
+        Store. The "Effective" date at the top of the page and the changelog
+        below will reflect every revision.
+        Privacy policy subject to change at any time.
       </p>
+
       <p>
-        We will not introduce any feature that collects, transmits, or shares
-        your data with third parties without clear disclosure, explicit user
-        consent where required by law, and an updated Privacy Policy.
-        Privacy policy subject to change at any time. Updates will be communicated and announced through the Chrome Web Store listing.
+        We will never introduce functionality that collects, transmits, or
+        shares your data with third parties without clear disclosure, updated
+        documentation, and — where required by law — explicit user consent.
       </p>
+
+      <div class="changelog" role="region" aria-label="Policy changelog">
+        <div class="changelog__header">Revision history</div>
+        <div class="changelog__entry">
+          <span class="changelog__date">2025-01-01</span>
+          <span class="changelog__note">
+            Version 1.0.0 — Initial release. Permissions:
+            <code>clipboardWrite</code>, <code>storage</code>
+            (session-scoped only). Replaced browser
+            <code>sessionStorage</code> with
+            <code>chrome.storage.session</code> for cross-popup
+            persistence. Removed previously planned
+            <code>clipboardRead</code> permission.
+          </span>
+        </div>
+      </div>
     </section>
 
-    <!-- ── §9 Contact ── -->
+    <!-- ══════════════════════════════════════════════
+         §9  CONTACT
+    ══════════════════════════════════════════════ -->
     <section class="policy-section" aria-labelledby="contact-title">
       <span class="section-anchor" id="contact"></span>
       <span class="section-number">09</span>
@@ -994,10 +1307,13 @@
         <span class="h2-icon" aria-hidden="true">✉️</span>
         Contact
       </h2>
+
       <p>
-        If you have any questions, concerns, or feedback about this Privacy
-        Policy or the Extension's behaviour, please reach out:
+        If you have questions, concerns, or feedback about this Privacy Policy
+        or the Extension's behaviour, please get in touch through any of the
+        channels below.
       </p>
+
       <div class="contact-card">
         <p><strong>Diff Viewer Support</strong></p>
         <p>
@@ -1006,18 +1322,18 @@
         </p>
         <p>
           🐛 Issues &amp; Source Code:
-          <a href="https://github.com/example/diff-viewer"
+          <a href="https://github.com/e8013585/diff-viewer"
              target="_blank"
              rel="noopener noreferrer">
-            github.com/example/diff-viewer
+            github.com/e8013585/diff-viewer
           </a>
         </p>
         <p>
           🌐 Chrome Web Store:
-          <a href="https://chrome.google.com/webstore/detail/EXTENSION_ID"
+          <a href="https://chrome.google.com/webstore/detail/pfdjejldilfeehleojnebcphkdejhcfa"
              target="_blank"
              rel="noopener noreferrer">
-            View on Web Store
+            View on Chrome Web Store
           </a>
         </p>
       </div>
@@ -1037,7 +1353,6 @@
   </footer>
 
   <script>
-    // Inject current year into footer
     document.getElementById('footer-year').textContent =
       new Date().getFullYear();
   </script>
