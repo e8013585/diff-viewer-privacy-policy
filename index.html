@@ -1,0 +1,1046 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description"
+        content="Privacy Policy for the Diff Viewer Chrome Extension. 
+                 No data collection, no telemetry, fully offline." />
+  <title>Privacy Policy — Diff Viewer Chrome Extension</title>
+  <style>
+    /* ── Reset ── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    /* ── Tokens ── */
+    :root {
+      --bg:           #0f1117;
+      --bg-secondary: #161b22;
+      --bg-card:      #1c2128;
+      --border:       #30363d;
+      --text:         #e6edf3;
+      --text-muted:   #8b949e;
+      --text-subtle:  #656d76;
+      --accent:       #58a6ff;
+      --accent-green: #3fb950;
+      --accent-red:   #f85149;
+      --accent-yellow:#e3b341;
+      --radius:       8px;
+      --max-width:    780px;
+      --font-ui:      -apple-system, BlinkMacSystemFont, "Segoe UI",
+                      Roboto, "Helvetica Neue", Arial, sans-serif;
+      --font-mono:    "SF Mono", "Fira Code", Consolas,
+                      "Courier New", monospace;
+    }
+
+    @media (prefers-color-scheme: light) {
+      :root {
+        --bg:           #ffffff;
+        --bg-secondary: #f6f8fa;
+        --bg-card:      #eaeef2;
+        --border:       #d0d7de;
+        --text:         #1f2328;
+        --text-muted:   #656d76;
+        --text-subtle:  #8c959f;
+        --accent:       #0969da;
+        --accent-green: #1a7f37;
+        --accent-red:   #cf222e;
+        --accent-yellow:#9a6700;
+      }
+    }
+
+    /* ── Base ── */
+    html {
+      font-size: 16px;
+      line-height: 1.6;
+      scroll-behavior: smooth;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    body {
+      font-family: var(--font-ui);
+      background: var(--bg);
+      color: var(--text);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* ── Skip link ── */
+    .skip-link {
+      position: absolute;
+      top: -100%;
+      left: 1rem;
+      background: var(--accent);
+      color: #fff;
+      padding: 0.5rem 1rem;
+      border-radius: var(--radius);
+      font-weight: 600;
+      z-index: 9999;
+      text-decoration: none;
+    }
+    .skip-link:focus { top: 1rem; }
+
+    /* ── Header ── */
+    .site-header {
+      background: var(--bg-secondary);
+      border-bottom: 1px solid var(--border);
+      padding: 1.25rem 1.5rem;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .site-header__inner {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .site-header__logo {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      text-decoration: none;
+      color: var(--text);
+    }
+
+    .logo-icon {
+      width: 28px;
+      height: 28px;
+      background: linear-gradient(135deg, #238636, #1f6feb);
+      border-radius: 6px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .logo-icon svg { display: block; }
+
+    .site-header__title {
+      font-size: 1rem;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+    }
+
+    .site-header__badge {
+      margin-left: auto;
+      font-size: 0.75rem;
+      color: var(--text-subtle);
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      padding: 2px 10px;
+      white-space: nowrap;
+    }
+
+    /* ── Main ── */
+    main {
+      flex: 1;
+      max-width: var(--max-width);
+      width: 100%;
+      margin: 0 auto;
+      padding: 2.5rem 1.5rem 4rem;
+    }
+
+    /* ── Hero ── */
+    .hero {
+      text-align: center;
+      padding: 2rem 0 2.5rem;
+      border-bottom: 1px solid var(--border);
+      margin-bottom: 2.5rem;
+    }
+
+    .hero__eyebrow {
+      display: inline-block;
+      font-size: 0.75rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--accent);
+      background: color-mix(in srgb, var(--accent) 12%, transparent);
+      border: 1px solid color-mix(in srgb, var(--accent) 30%, transparent);
+      border-radius: 999px;
+      padding: 3px 12px;
+      margin-bottom: 1rem;
+    }
+
+    .hero__title {
+      font-size: clamp(1.5rem, 4vw, 2.25rem);
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      line-height: 1.2;
+      margin-bottom: 0.75rem;
+    }
+
+    .hero__subtitle {
+      font-size: 1rem;
+      color: var(--text-muted);
+      max-width: 520px;
+      margin: 0 auto 1.5rem;
+      line-height: 1.7;
+    }
+
+    /* Effective date pill */
+    .meta-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      font-size: 0.8rem;
+      color: var(--text-subtle);
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 0.3rem 0.75rem;
+    }
+
+    .meta-pill__dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--accent-green);
+      flex-shrink: 0;
+    }
+
+    /* ── Summary cards ── */
+    .summary-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1rem;
+      margin-bottom: 3rem;
+    }
+
+    .summary-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 1.25rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+
+    .summary-card__icon {
+      font-size: 1.5rem;
+      line-height: 1;
+    }
+
+    .summary-card__title {
+      font-size: 0.875rem;
+      font-weight: 700;
+      color: var(--text);
+    }
+
+    .summary-card__body {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      line-height: 1.5;
+    }
+
+    /* ── Sections ── */
+    .policy-section {
+      margin-bottom: 3rem;
+    }
+
+    .policy-section + .policy-section {
+      border-top: 1px solid var(--border);
+      padding-top: 2.5rem;
+    }
+
+    .section-anchor {
+      display: block;
+      position: relative;
+      top: -80px;
+      visibility: hidden;
+    }
+
+    .section-number {
+      display: inline-block;
+      font-size: 0.7rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--text-subtle);
+      margin-bottom: 0.4rem;
+    }
+
+    h2 {
+      font-size: 1.25rem;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      margin-bottom: 1rem;
+      color: var(--text);
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    h2 .h2-icon {
+      font-size: 1.1rem;
+    }
+
+    h3 {
+      font-size: 0.95rem;
+      font-weight: 600;
+      margin: 1.5rem 0 0.5rem;
+      color: var(--text);
+    }
+
+    p {
+      font-size: 0.9375rem;
+      color: var(--text-muted);
+      line-height: 1.75;
+      margin-bottom: 0.75rem;
+    }
+
+    p:last-child { margin-bottom: 0; }
+
+    /* ── Callout boxes ── */
+    .callout {
+      border-radius: var(--radius);
+      padding: 1rem 1.25rem;
+      margin: 1.25rem 0;
+      border-left: 3px solid;
+      font-size: 0.9rem;
+      line-height: 1.65;
+    }
+
+    .callout--green {
+      background: color-mix(in srgb, var(--accent-green) 8%, transparent);
+      border-color: var(--accent-green);
+      color: var(--text-muted);
+    }
+
+    .callout--blue {
+      background: color-mix(in srgb, var(--accent) 8%, transparent);
+      border-color: var(--accent);
+      color: var(--text-muted);
+    }
+
+    .callout--yellow {
+      background: color-mix(in srgb, var(--accent-yellow) 8%, transparent);
+      border-color: var(--accent-yellow);
+      color: var(--text-muted);
+    }
+
+    .callout strong {
+      color: var(--text);
+      display: block;
+      margin-bottom: 0.25rem;
+    }
+
+    /* ── Permission table ── */
+    .perm-table-wrapper {
+      overflow-x: auto;
+      border-radius: var(--radius);
+      border: 1px solid var(--border);
+      margin: 1.25rem 0;
+    }
+
+    .perm-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.85rem;
+      font-family: var(--font-ui);
+    }
+
+    .perm-table thead {
+      background: var(--bg-secondary);
+    }
+
+    .perm-table th {
+      padding: 0.65rem 1rem;
+      text-align: left;
+      font-weight: 600;
+      color: var(--text-muted);
+      font-size: 0.78rem;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .perm-table td {
+      padding: 0.65rem 1rem;
+      border-bottom: 1px solid var(--border);
+      color: var(--text-muted);
+      vertical-align: top;
+      line-height: 1.5;
+    }
+
+    .perm-table tr:last-child td { border-bottom: none; }
+
+    .perm-table tr:hover td {
+      background: color-mix(in srgb, var(--bg-card) 50%, transparent);
+    }
+
+    .perm-name {
+      font-family: var(--font-mono);
+      font-size: 0.8rem;
+      color: var(--accent);
+      white-space: nowrap;
+    }
+
+    .badge {
+      display: inline-block;
+      font-size: 0.7rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      border-radius: 999px;
+      padding: 2px 8px;
+      white-space: nowrap;
+    }
+
+    .badge--yes {
+      background: color-mix(in srgb, var(--accent-green) 15%, transparent);
+      color: var(--accent-green);
+    }
+
+    .badge--no {
+      background: color-mix(in srgb, var(--accent-red) 15%, transparent);
+      color: var(--accent-red);
+    }
+
+    .badge--na {
+      background: var(--bg-card);
+      color: var(--text-subtle);
+      border: 1px solid var(--border);
+    }
+
+    /* ── No-data promise list ── */
+    .promise-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.6rem;
+      margin: 1rem 0;
+    }
+
+    .promise-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.6rem;
+      font-size: 0.9375rem;
+      color: var(--text-muted);
+      line-height: 1.5;
+    }
+
+    .promise-list li::before {
+      content: "✓";
+      color: var(--accent-green);
+      font-weight: 700;
+      flex-shrink: 0;
+      margin-top: 1px;
+    }
+
+    /* ── Contact card ── */
+    .contact-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 1.5rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+
+    .contact-card p {
+      margin: 0;
+    }
+
+    .contact-card a {
+      color: var(--accent);
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    .contact-card a:hover {
+      text-decoration: underline;
+    }
+
+    /* ── Table of contents ── */
+    .toc {
+      background: var(--bg-secondary);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 1.25rem 1.5rem;
+      margin-bottom: 2.5rem;
+    }
+
+    .toc__title {
+      font-size: 0.8rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--text-subtle);
+      margin-bottom: 0.75rem;
+    }
+
+    .toc__list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.35rem;
+    }
+
+    .toc__list a {
+      font-size: 0.875rem;
+      color: var(--accent);
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+
+    .toc__list a:hover { text-decoration: underline; }
+
+    .toc__num {
+      font-size: 0.75rem;
+      color: var(--text-subtle);
+      font-variant-numeric: tabular-nums;
+      width: 1.5rem;
+      flex-shrink: 0;
+    }
+
+    /* ── Footer ── */
+    .site-footer {
+      background: var(--bg-secondary);
+      border-top: 1px solid var(--border);
+      padding: 1.5rem;
+      text-align: center;
+    }
+
+    .site-footer p {
+      font-size: 0.8rem;
+      color: var(--text-subtle);
+      margin: 0;
+    }
+
+    .site-footer a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    /* ── Focus ── */
+    :focus-visible {
+      outline: 2px solid var(--accent);
+      outline-offset: 3px;
+      border-radius: 3px;
+    }
+
+    /* ── Responsive ── */
+    @media (max-width: 600px) {
+      .hero__title { font-size: 1.5rem; }
+      .summary-grid { grid-template-columns: 1fr 1fr; }
+      .perm-table th:nth-child(3),
+      .perm-table td:nth-child(3) { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Skip Navigation -->
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
+  <!-- ══════════════════════════════════════════════
+       HEADER
+  ══════════════════════════════════════════════ -->
+  <header class="site-header" role="banner">
+    <div class="site-header__inner">
+      <a href="#" class="site-header__logo" aria-label="Diff Viewer home">
+        <div class="logo-icon" aria-hidden="true">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none"
+               stroke="#ffffff" stroke-width="2.5" stroke-linecap="round">
+            <path d="M9 3H5a2 2 0 0 0-2 2v4m6-6h10a2 2 0 0 1 2 2v4
+                     M9 3v18m0 0h10a2 2 0 0 0 2-2V9M9 21H5a2 2 0 0 1-2-2V9m0
+                     0h18"/>
+          </svg>
+        </div>
+        <span class="site-header__title">Diff Viewer</span>
+      </a>
+      <span class="site-header__badge" aria-label="Chrome Extension">
+        Chrome Extension
+      </span>
+    </div>
+  </header>
+
+  <!-- ══════════════════════════════════════════════
+       MAIN
+  ══════════════════════════════════════════════ -->
+  <main id="main-content">
+
+    <!-- Hero -->
+    <section class="hero" aria-labelledby="page-title">
+      <span class="hero__eyebrow">Legal</span>
+      <h1 class="hero__title" id="page-title">Privacy Policy</h1>
+      <p class="hero__subtitle">
+        Diff Viewer is built on a single principle: your data belongs to you.
+        This document explains exactly what information the extension does and
+        does not collect — in plain language.
+      </p>
+      <div class="meta-pill" role="status" aria-label="Policy status">
+        <span class="meta-pill__dot" aria-hidden="true"></span>
+        <span>Effective: <time datetime="2026-05-10">May 10, 2026</time>
+          &nbsp;·&nbsp; Version 1.0.0</span>
+      </div>
+    </section>
+
+    <!-- At-a-Glance Cards -->
+    <section aria-label="Privacy at a glance">
+      <div class="summary-grid">
+        <div class="summary-card">
+          <div class="summary-card__icon" aria-hidden="true">🔒</div>
+          <div class="summary-card__title">Zero Data Collection</div>
+          <div class="summary-card__body">
+            We collect no personal data, usage data, or telemetry of any kind.
+          </div>
+        </div>
+        <div class="summary-card">
+          <div class="summary-card__icon" aria-hidden="true">📡</div>
+          <div class="summary-card__title">No Network Requests</div>
+          <div class="summary-card__body">
+            The extension makes zero external network calls.
+            Everything runs locally.
+          </div>
+        </div>
+        <div class="summary-card">
+          <div class="summary-card__icon" aria-hidden="true">👤</div>
+          <div class="summary-card__title">No Account Required</div>
+          <div class="summary-card__body">
+            No sign-in, no registration, no email address needed.
+          </div>
+        </div>
+        <div class="summary-card">
+          <div class="summary-card__icon" aria-hidden="true">🌐</div>
+          <div class="summary-card__title">Fully Offline</div>
+          <div class="summary-card__body">
+            Works without an internet connection after installation.
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Table of Contents -->
+    <nav class="toc" aria-labelledby="toc-title">
+      <p class="toc__title" id="toc-title">Contents</p>
+      <ol class="toc__list">
+        <li>
+          <span class="toc__num" aria-hidden="true">01</span>
+          <a href="#scope">Scope &amp; Applicability</a>
+        </li>
+        <li>
+          <span class="toc__num" aria-hidden="true">02</span>
+          <a href="#data-collected">What Data We Collect</a>
+        </li>
+        <li>
+          <span class="toc__num" aria-hidden="true">03</span>
+          <a href="#how-it-works">How the Extension Works</a>
+        </li>
+        <li>
+          <span class="toc__num" aria-hidden="true">04</span>
+          <a href="#permissions">Permissions Explained</a>
+        </li>
+        <li>
+          <span class="toc__num" aria-hidden="true">05</span>
+          <a href="#local-storage">Local Storage</a>
+        </li>
+        <li>
+          <span class="toc__num" aria-hidden="true">06</span>
+          <a href="#third-parties">Third Parties</a>
+        </li>
+        <li>
+          <span class="toc__num" aria-hidden="true">07</span>
+          <a href="#children">Children's Privacy</a>
+        </li>
+        <li>
+          <span class="toc__num" aria-hidden="true">08</span>
+          <a href="#changes">Changes to This Policy</a>
+        </li>
+        <li>
+          <span class="toc__num" aria-hidden="true">09</span>
+          <a href="#contact">Contact</a>
+        </li>
+      </ol>
+    </nav>
+
+    <!-- ── §1 Scope ── -->
+    <section class="policy-section" aria-labelledby="scope-title">
+      <span class="section-anchor" id="scope"></span>
+      <span class="section-number">01</span>
+      <h2 id="scope-title">
+        <span class="h2-icon" aria-hidden="true">📋</span>
+        Scope &amp; Applicability
+      </h2>
+      <p>
+        This Privacy Policy applies to the <strong>Diff Viewer</strong> Chrome
+        extension (the "Extension"), version 1.0.0 and all subsequent versions,
+        distributed through the Chrome Web Store.
+      </p>
+      <p>
+        This policy does not apply to any external websites, services, or
+        tools that you may access while using Chrome. Those are governed by
+        their own privacy policies.
+      </p>
+    </section>
+
+    <!-- ── §2 Data Collected ── -->
+    <section class="policy-section" aria-labelledby="data-title">
+      <span class="section-anchor" id="data-collected"></span>
+      <span class="section-number">02</span>
+      <h2 id="data-title">
+        <span class="h2-icon" aria-hidden="true">📊</span>
+        What Data We Collect
+      </h2>
+
+      <div class="callout callout--green">
+        <strong>The short answer: nothing.</strong>
+        The Extension does not collect, transmit, store on any server, sell,
+        share, or process any personal or non-personal data whatsoever.
+      </div>
+
+      <p>Specifically, the Extension does <strong>not</strong> collect:</p>
+
+      <ul class="promise-list">
+        <li>Personal identifiers (name, email, IP address, device ID)</li>
+        <li>The text you paste into the input panels</li>
+        <li>Diff results or comparison history</li>
+        <li>Browsing history, tab URLs, or page content</li>
+        <li>Usage statistics, feature interactions, or analytics</li>
+        <li>Crash reports or error logs sent to any server</li>
+        <li>Keyboard input or clipboard contents beyond the
+            explicit copy/paste actions you initiate</li>
+        <li>Any information about your system, browser, or location</li>
+      </ul>
+    </section>
+
+    <!-- ── §3 How It Works ── -->
+    <section class="policy-section" aria-labelledby="how-title">
+      <span class="section-anchor" id="how-it-works"></span>
+      <span class="section-number">03</span>
+      <h2 id="how-title">
+        <span class="h2-icon" aria-hidden="true">⚙️</span>
+        How the Extension Works
+      </h2>
+      <p>
+        Diff Viewer is a <strong>browser popup extension</strong>. When you
+        click its icon, a popup window opens entirely within your browser
+        process. All computation — text parsing, diff algorithm execution,
+        and result rendering — occurs <em>inside that popup window</em>
+        using only browser-native JavaScript APIs.
+      </p>
+
+      <h3>Data flow</h3>
+      <p>
+        Text you paste into the panels is held in memory (JavaScript variables
+        and the browser's <code>sessionStorage</code>) for the duration of
+        your session. It is never serialized to disk beyond
+        <code>sessionStorage</code>, never sent over the network, and is
+        automatically discarded when the popup is closed or the browser
+        session ends.
+      </p>
+
+      <h3>No content scripts</h3>
+      <p>
+        The Extension does not inject any scripts into web pages you visit.
+        It cannot read, modify, or interact with any webpage's DOM, content,
+        or network traffic. It is invisible to every website you browse.
+      </p>
+
+      <h3>No background service worker with network access</h3>
+      <p>
+        The Extension does not register a background service worker. There
+        is no persistent background process monitoring your browser activity.
+      </p>
+
+      <div class="callout callout--blue">
+        <strong>Verifiable.</strong>
+        The Extension's Content Security Policy (<code>script-src 'self'</code>)
+        is enforced at the browser level and technically prevents the loading
+        of any external scripts, stylesheets, fonts, or data — even if the
+        source code attempted to do so.
+      </div>
+    </section>
+
+    <!-- ── §4 Permissions ── -->
+    <section class="policy-section" aria-labelledby="perms-title">
+      <span class="section-anchor" id="permissions"></span>
+      <span class="section-number">04</span>
+      <h2 id="perms-title">
+        <span class="h2-icon" aria-hidden="true">🔑</span>
+        Permissions Explained
+      </h2>
+      <p>
+        The Extension declares the following permissions in its
+        <code>manifest.json</code>. Below is an exact explanation of why
+        each permission exists and what it does — and does not — allow.
+      </p>
+
+      <div class="perm-table-wrapper" role="region"
+           aria-label="Permissions table">
+        <table class="perm-table">
+          <thead>
+            <tr>
+              <th scope="col">Permission</th>
+              <th scope="col">Why It's Used</th>
+              <th scope="col">Can Access Your Data?</th>
+              <th scope="col">User-Initiated Only?</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>
+                <span class="perm-name">clipboardWrite</span>
+              </td>
+              <td>
+                Powers the <strong>Copy</strong> buttons in each input panel.
+                When you click Copy, the panel's text is written to your
+                system clipboard via the
+                <code>navigator.clipboard.writeText()</code> API. The
+                Extension never writes to the clipboard automatically or
+                without a direct button click from you.
+              </td>
+              <td><span class="badge badge--no">No</span></td>
+              <td><span class="badge badge--yes">Yes</span></td>
+            </tr>
+            <tr>
+              <td>
+                <span class="perm-name">clipboardRead</span>
+              </td>
+              <td>
+                Declared for a planned "Paste from clipboard" convenience
+                feature. This permission is only exercised via an explicit
+                user gesture. The Extension never reads the clipboard
+                automatically, in the background, or without you clicking
+                a clearly labelled Paste button.
+              </td>
+              <td><span class="badge badge--no">No</span></td>
+              <td><span class="badge badge--yes">Yes</span></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3>Permissions the Extension does <em>not</em> request</h3>
+
+      <div class="perm-table-wrapper" role="region"
+           aria-label="Permissions not requested">
+        <table class="perm-table">
+          <thead>
+            <tr>
+              <th scope="col">Permission</th>
+              <th scope="col">What it would allow</th>
+              <th scope="col">Requested?</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><span class="perm-name">tabs</span></td>
+              <td>Reading tab URLs and titles</td>
+              <td><span class="badge badge--no">Not Requested</span></td>
+            </tr>
+            <tr>
+              <td><span class="perm-name">activeTab</span></td>
+              <td>Accessing the content of the active page</td>
+              <td><span class="badge badge--no">Not Requested</span></td>
+            </tr>
+            <tr>
+              <td><span class="perm-name">history</span></td>
+              <td>Reading your browsing history</td>
+              <td><span class="badge badge--no">Not Requested</span></td>
+            </tr>
+            <tr>
+              <td><span class="perm-name">cookies</span></td>
+              <td>Reading or writing cookies</td>
+              <td><span class="badge badge--no">Not Requested</span></td>
+            </tr>
+            <tr>
+              <td><span class="perm-name">storage</span></td>
+              <td>Chrome's synced extension storage</td>
+              <td><span class="badge badge--no">Not Requested</span></td>
+            </tr>
+            <tr>
+              <td><span class="perm-name">webRequest</span></td>
+              <td>Intercepting network traffic</td>
+              <td><span class="badge badge--no">Not Requested</span></td>
+            </tr>
+            <tr>
+              <td><span class="perm-name">identity</span></td>
+              <td>OAuth / Google account access</td>
+              <td><span class="badge badge--no">Not Requested</span></td>
+            </tr>
+            <tr>
+              <td><span class="perm-name">notifications</span></td>
+              <td>Sending system notifications</td>
+              <td><span class="badge badge--no">Not Requested</span></td>
+            </tr>
+            <tr>
+              <td><span class="perm-name">&lt;all_urls&gt;</span></td>
+              <td>Accessing all websites</td>
+              <td><span class="badge badge--no">Not Requested</span></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- ── §5 Local Storage ── -->
+    <section class="policy-section" aria-labelledby="storage-title">
+      <span class="section-anchor" id="local-storage"></span>
+      <span class="section-number">05</span>
+      <h2 id="storage-title">
+        <span class="h2-icon" aria-hidden="true">💾</span>
+        Local Storage
+      </h2>
+      <p>
+        The Extension uses the browser's built-in
+        <strong><code>sessionStorage</code></strong> API to remember the text
+        you have typed into the two input panels. This data:
+      </p>
+      <ul class="promise-list">
+        <li>Is stored entirely on your local device inside your browser's
+            sandboxed storage partition for this extension</li>
+        <li>Is automatically deleted when the browser session ends or
+            you close all browser windows</li>
+        <li>Is never synced to Chrome Sync, any cloud service,
+            or any server</li>
+        <li>Cannot be read by any website or any other extension</li>
+        <li>Is limited in scope to the extension popup's own
+            JavaScript context</li>
+      </ul>
+
+      <div class="callout callout--yellow">
+        <strong>Note on sensitive content.</strong>
+        If you paste sensitive information (passwords, private keys,
+        confidential documents) into Diff Viewer, that content is held in
+        <code>sessionStorage</code> temporarily. While this data never leaves
+        your device through this Extension, you are responsible for the
+        security of your local device and browser profile.
+      </div>
+    </section>
+
+    <!-- ── §6 Third Parties ── -->
+    <section class="policy-section" aria-labelledby="third-title">
+      <span class="section-anchor" id="third-parties"></span>
+      <span class="section-number">06</span>
+      <h2 id="third-title">
+        <span class="h2-icon" aria-hidden="true">🤝</span>
+        Third Parties
+      </h2>
+      <p>
+        Diff Viewer does not integrate with, communicate with, or share any
+        data with any third party, including but not limited to:
+      </p>
+      <ul class="promise-list">
+        <li>Analytics providers (Google Analytics, Mixpanel, Amplitude, etc.)</li>
+        <li>Crash reporting services (Sentry, Bugsnag, Datadog, etc.)</li>
+        <li>Advertising networks or ad exchanges</li>
+        <li>Data brokers or data enrichment services</li>
+        <li>Cloud storage or synchronization services</li>
+        <li>Any API endpoints, webhooks, or remote servers of any kind</li>
+      </ul>
+      <p>
+        The Extension loads no external resources at runtime. All HTML, CSS,
+        JavaScript, and image assets are bundled within the extension package
+        itself and loaded from the extension's own origin (<code>chrome-extension://</code>).
+      </p>
+    </section>
+
+    <!-- ── §7 Children ── -->
+    <section class="policy-section" aria-labelledby="children-title">
+      <span class="section-anchor" id="children"></span>
+      <span class="section-number">07</span>
+      <h2 id="children-title">
+        <span class="h2-icon" aria-hidden="true">👶</span>
+        Children's Privacy
+      </h2>
+      <p>
+        Diff Viewer does not collect any personal information from anyone,
+        including children under the age of 13 (or the applicable age of
+        digital consent in your jurisdiction). Because we collect no data
+        at all, there is no special treatment required for children — the
+        same zero-data guarantee applies universally.
+      </p>
+    </section>
+
+    <!-- ── §8 Changes ── -->
+    <section class="policy-section" aria-labelledby="changes-title">
+      <span class="section-anchor" id="changes"></span>
+      <span class="section-number">08</span>
+      <h2 id="changes-title">
+        <span class="h2-icon" aria-hidden="true">📝</span>
+        Changes to This Policy
+      </h2>
+      <p>
+        If future versions of the Extension introduce new features that change
+        how data is handled — even locally — this Privacy Policy will be
+        updated before that version is published. The "Effective" date at the
+        top of this page will reflect the most recent revision.
+      </p>
+      <p>
+        We will not introduce any feature that collects, transmits, or shares
+        your data with third parties without clear disclosure, explicit user
+        consent where required by law, and an updated Privacy Policy.
+        Privacy policy subject to change at any time. Updates will be communicated and announced through the Chrome Web Store listing.
+      </p>
+    </section>
+
+    <!-- ── §9 Contact ── -->
+    <section class="policy-section" aria-labelledby="contact-title">
+      <span class="section-anchor" id="contact"></span>
+      <span class="section-number">09</span>
+      <h2 id="contact-title">
+        <span class="h2-icon" aria-hidden="true">✉️</span>
+        Contact
+      </h2>
+      <p>
+        If you have any questions, concerns, or feedback about this Privacy
+        Policy or the Extension's behaviour, please reach out:
+      </p>
+      <div class="contact-card">
+        <p><strong>Diff Viewer Support</strong></p>
+        <p>
+          📧 Email:
+          <a href="mailto:privacy@example.com">e8013585@gmail.com</a>
+        </p>
+        <p>
+          🐛 Issues &amp; Source Code:
+          <a href="https://github.com/example/diff-viewer"
+             target="_blank"
+             rel="noopener noreferrer">
+            github.com/example/diff-viewer
+          </a>
+        </p>
+        <p>
+          🌐 Chrome Web Store:
+          <a href="https://chrome.google.com/webstore/detail/EXTENSION_ID"
+             target="_blank"
+             rel="noopener noreferrer">
+            View on Web Store
+          </a>
+        </p>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ══════════════════════════════════════════════
+       FOOTER
+  ══════════════════════════════════════════════ -->
+  <footer class="site-footer" role="contentinfo">
+    <p>
+      &copy; <span id="footer-year"></span> Diff Viewer -
+
+      <a href="#">Back to top</a>
+    </p>
+  </footer>
+
+  <script>
+    // Inject current year into footer
+    document.getElementById('footer-year').textContent =
+      new Date().getFullYear();
+  </script>
+
+</body>
+</html>
